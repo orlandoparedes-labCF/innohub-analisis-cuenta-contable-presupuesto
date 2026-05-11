@@ -1,0 +1,27 @@
+{
+  "project": {
+    "id": "innohub-analisis-cuenta-contable-presupuesto",
+    "name": "Analizador Libro Mayor — Cuenta Contable y Presupuesto",
+    "description": "Agente IA que analiza reportes de Libro Mayor de ComunidadFeliz SPA: identifica proveedores por RUT, enriquece sin-RUT via Clay, aplica IVA 19% solo a proveedores nacionales, y genera informes Excel con analisis por periodo y presupuesto.",
+    "team": "Tesoreria",
+    "owner": "orlando.paredes@comunidadfeliz.cl",
+    "type": "fastapi",
+    "version": "1.0.0"
+  },
+  "service": {
+    "port": 8000,
+    "base_path": "/api",
+    "health_endpoint": "/api/health",
+    "metrics_endpoint": "/api/metrics"
+  },
+  "ui": {
+    "enabled": true,
+    "type": "streamlit",
+    "port": 8501,
+    "path": "ui/app.py"
+  },
+  "dependencies": {
+    "external": ["groq", "clay.cl"],
+    "env_vars": ["GROQ_API_KEY", "CLAY_EMAIL", "CLAY_PASSWORD"]
+  }
+}
